@@ -6185,7 +6185,7 @@ G.addData(function(){
 			for (let ii=0;ii<G.upgrades.length;ii++)
 			{
 				let me=G.upgrades[ii];
-				if (me.owned && me.unlocked && noPerm.indexOf(me.name)==-1 && (me.pool=='building' || me.pool=='cookie' || me.pool=='finger' || me.pool=='mouse' || me.pool=='kitten') && G.permanentUpgrades.indexOf(me.id==-1)) list.push(me);
+				if (me.owned && me.unlocked && noPerm.indexOf(me.name)==-1 && (me.pool=='' || me.pool=='building' || me.pool=='cookie' || me.pool=='finger' || me.pool=='mouse' || me.pool=='kitten') && G.permanentUpgrades.indexOf(me.id==-1)) list.push(me);
 			}
 			list.sort((a,b)=>a.order-b.order);
 			
