@@ -1,11 +1,11 @@
-.class public final Lorg/dashnet/cookieclicker/R$dimen;
+.class public final Lorg/dashnet/cookieclickermodified/R$dimen;
 .super Ljava/lang/Object;
 .source "R.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lorg/dashnet/cookieclicker/R;
+    value = Lorg/dashnet/cookieclickermodified/R;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

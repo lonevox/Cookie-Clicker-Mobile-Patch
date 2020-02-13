@@ -1,11 +1,11 @@
-.class public final Lorg/dashnet/cookieclicker/R$styleable;
+.class public final Lorg/dashnet/cookieclickermodified/R$styleable;
 .super Ljava/lang/Object;
 .source "R.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lorg/dashnet/cookieclicker/R;
+    value = Lorg/dashnet/cookieclickermodified/R;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -57,7 +57,7 @@
 
     fill-array-data v1, :array_0
 
-    sput-object v1, Lorg/dashnet/cookieclicker/R$styleable;->AdsAttrs:[I
+    sput-object v1, Lorg/dashnet/cookieclickermodified/R$styleable;->AdsAttrs:[I
 
     const/4 v1, 0x6
 
@@ -66,14 +66,14 @@
 
     fill-array-data v1, :array_1
 
-    sput-object v1, Lorg/dashnet/cookieclicker/R$styleable;->FontFamily:[I
+    sput-object v1, Lorg/dashnet/cookieclickermodified/R$styleable;->FontFamily:[I
 
     .line 400
     new-array v0, v0, [I
 
     fill-array-data v0, :array_2
 
-    sput-object v0, Lorg/dashnet/cookieclicker/R$styleable;->FontFamilyFont:[I
+    sput-object v0, Lorg/dashnet/cookieclickermodified/R$styleable;->FontFamilyFont:[I
 
     return-void
 

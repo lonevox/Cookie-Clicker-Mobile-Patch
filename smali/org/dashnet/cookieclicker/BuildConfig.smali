@@ -1,10 +1,10 @@
-.class public final Lorg/dashnet/cookieclicker/BuildConfig;
+.class public final Lorg/dashnet/cookieclickermodified/BuildConfig;
 .super Ljava/lang/Object;
 .source "BuildConfig.java"
 
 
 # static fields
-.field public static final APPLICATION_ID:Ljava/lang/String; = "org.dashnet.cookieclicker"
+.field public static final APPLICATION_ID:Ljava/lang/String; = "org.dashnet.cookieclickermodified"
 
 .field public static final BUILD_TYPE:Ljava/lang/String; = "release"
 

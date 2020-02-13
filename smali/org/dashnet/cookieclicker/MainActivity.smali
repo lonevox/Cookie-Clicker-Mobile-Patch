@@ -1,4 +1,4 @@
-.class public Lorg/dashnet/cookieclicker/MainActivity;
+.class public Lorg/dashnet/cookieclickermodified/MainActivity;
 .super Lorg/apache/cordova/CordovaActivity;
 .source "MainActivity.java"
 
@@ -22,7 +22,7 @@
     invoke-super {p0, p1}, Lorg/apache/cordova/CordovaActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 33
-    invoke-virtual {p0}, Lorg/dashnet/cookieclicker/MainActivity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Lorg/dashnet/cookieclickermodified/MainActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object p1
 
@@ -46,13 +46,13 @@
     const/4 p1, 0x1
 
     .line 35
-    invoke-virtual {p0, p1}, Lorg/dashnet/cookieclicker/MainActivity;->moveTaskToBack(Z)Z
+    invoke-virtual {p0, p1}, Lorg/dashnet/cookieclickermodified/MainActivity;->moveTaskToBack(Z)Z
 
     .line 39
     :cond_0
-    iget-object p1, p0, Lorg/dashnet/cookieclicker/MainActivity;->launchUrl:Ljava/lang/String;
+    iget-object p1, p0, Lorg/dashnet/cookieclickermodified/MainActivity;->launchUrl:Ljava/lang/String;
 
-    invoke-virtual {p0, p1}, Lorg/dashnet/cookieclicker/MainActivity;->loadUrl(Ljava/lang/String;)V
+    invoke-virtual {p0, p1}, Lorg/dashnet/cookieclickermodified/MainActivity;->loadUrl(Ljava/lang/String;)V
 
     return-void
 .end method
