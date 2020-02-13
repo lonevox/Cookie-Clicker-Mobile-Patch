@@ -401,6 +401,8 @@ G.Init=function(StartLoop)
 		var o={};
 		
 		//save data
+
+		o.DEV=DEV
 		
 		o.time=new Date().getTime();
 		
@@ -476,6 +478,8 @@ G.Init=function(StartLoop)
 			//load data
 			
 			//console.log('loaded',o);
+
+			DEV=o.DEV
 			
 			var delta=(new Date().getTime()-(o.time||0))*G.fps/1000;
 			
@@ -776,6 +780,7 @@ G.Init=function(StartLoop)
 			base:1,
 			onChange:me=>{
 			},
+		},
 		'shortnumbers':{
 			base:1,
 			onChange:me=>{
@@ -5623,7 +5628,7 @@ G.Draw=function()
 			else {G.cookiesAmountL.innerHTML=B(G.cookiesD,3,1)+(B(G.cookiesD)=='1'?' cookie':' cookies');}
 		} 
 		else {G.cookiesAmountL.innerHTML=B(G.cookiesD,0,2)+(B(G.cookiesD)=='1'?' cookie':' cookies');}
-
+		
 		G.cookiesPsL.innerHTML=B(G.cookiesPs*(1-G.cpsSucked),1)+'/s';
 		var dif=(G.cookiesPs*(1-G.cpsSucked)-G.cookiesPsUnbuffed);
 		if (dif>0) {G.cookiesPsL.classList.remove('unbuffed');G.cookiesPsL.classList.add('buffed');}
