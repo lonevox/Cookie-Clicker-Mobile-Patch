@@ -24,6 +24,21 @@ UPDATES=[
 	[1,`5/23/2019`,`Alpha launch!`,`launched a private alpha for our Patreon supporters, with a minimal feature set to make sure we build on a solid base|at this point, the game features 329 upgrades and 317 achievements|the entire Special tab remains to be implemented`],
 ];
 
+let initialHref=window.location.href;
+let reloadingApp=false;
+let reloadApp=()=>{
+	//navigator.app.loadUrl("file:///android_asset/www/index.html",{wait:200,loadingDialog:"Loading...",loadUrlTimeoutValue:60000});
+	if (reloadingApp) return false;
+	reloadingApp=true;
+	/*(typeof admob!=='undefined')?(admob.banner.hide(G.admobId)):(new Promise(function(win,fail){win();})).then(()=>{
+		if (navigator && navigator.app && navigator.app.loadUrl) navigator.app.loadUrl("file:///android_asset/www/index.html");
+		else window.location=initialHref;
+	});*/
+	if (typeof admob!=='undefined') admob=null;//this prevents "Alert : invalid action" messages
+	if (navigator && navigator.app && navigator.app.loadUrl) navigator.app.loadUrl("file:///android_asset/www/index.html");
+	else window.location=initialHref;
+};
+
 if (typeof Origami!=='undefined')
 {
 	var attachFastClick=Origami.fastclick;
@@ -387,6 +402,8 @@ G.Init=function(StartLoop)
 		
 		//save data
 		
+		o.DEV=DEV
+
 		o.time=new Date().getTime();
 		
 		o.settings={};
@@ -461,6 +478,8 @@ G.Init=function(StartLoop)
 			//load data
 			
 			//console.log('loaded',o);
+
+			DEV=o.DEV;
 			
 			var delta=(new Date().getTime()-(o.time||0))*G.fps/1000;
 			
@@ -770,6 +789,25 @@ G.Init=function(StartLoop)
 		'shortformatting':{
 			base:1,
 			onChange:me=>{
+			},
+		},
+		'devtools':{
+			base:DEV,
+			onChange:me=>{
+				if (me.val==1)
+				{
+					if (DEV!=1)
+					{
+						DEV=1;
+						G.Save().then(()=>reloadApp());
+					}
+				}
+				else {
+					if (DEV!=0) {
+						DEV=0;
+						G.Save().then(()=>reloadApp());
+					}
+				}
 			},
 		},
 		'diagnostic':{
@@ -3641,8 +3679,11 @@ G.Init=function(StartLoop)
 					`+G.stateButton({text:'Particles & milk',comment:'Disabling may improve performance.',tieToSetting:'particles'})+`
 					`+G.stateButton({text:'Cookie pops',comment:'Visual effect reflecting cookie production.<br>Requires particles to be on.',tieToSetting:'cookiepops'})+`
 					`+G.stateButton({text:'Cursors',comment:'Cursors rotating around your cookie.<br>Disabling may improve performance.',tieToSetting:'cursors'})+`
-					`+G.stateButton({text:'Short Numbers',comment:'Shorten big numbers.',tieToSetting:'shortnumbers'})+`
-					`+G.stateButton({text:'Short Formatting',comment:'Shortens the format of cookies in bank.',tieToSetting:'shortformatting'})+`
+					<h3>${G.iconSmall(16,5)} lonevox's Patch Settings</h3>
+					`+G.stateButton({text:'Short Numbers',comment:'Shorten big numbers using english notation.',tieToSetting:'shortnumbers'})+`
+					`+G.stateButton({text:'Short Formatting',comment:'Shorten the notation of cookies in bank.',tieToSetting:'shortformatting'})+`
+					`+G.stateButton({text:'Development Tools',comment:'Allows for the use of development tools.',tieToSetting:'devtools'})+`
+					`+(DEV?`<h3>${G.iconSmall(16,5)} Development Settings</h3>`:'')+`
 					`+(DEV?G.stateButton({text:'Diagnostic',comment:'Displays a framerate graph.',tieToSetting:'diagnostic'}):'')+`
 					`+(DEV?G.stateButton({text:'Debug cheats',comment:'Displays cheat options.<br>For debug purposes only!',tieToSetting:'debug'}):'')+`
 				`,close:`Confirm`});
@@ -3717,23 +3758,6 @@ G.Init=function(StartLoop)
 					}})+`
 				`,close:`No`});
 			}});
-			
-			//let reloadApp=()=>{location.reload();};
-			//see https://stackoverflow.com/questions/15477887/restart-my-phonegap-app-programmatically/21207341
-			let initialHref=window.location.href;
-			let reloadingApp=false;
-			let reloadApp=()=>{
-				//navigator.app.loadUrl("file:///android_asset/www/index.html",{wait:200,loadingDialog:"Loading...",loadUrlTimeoutValue:60000});
-				if (reloadingApp) return false;
-				reloadingApp=true;
-				/*(typeof admob!=='undefined')?(admob.banner.hide(G.admobId)):(new Promise(function(win,fail){win();})).then(()=>{
-					if (navigator && navigator.app && navigator.app.loadUrl) navigator.app.loadUrl("file:///android_asset/www/index.html");
-					else window.location=initialHref;
-				});*/
-				if (typeof admob!=='undefined') admob=null;//this prevents "Alert : invalid action" messages
-				if (navigator && navigator.app && navigator.app.loadUrl) navigator.app.loadUrl("file:///android_asset/www/index.html");
-				else window.location=initialHref;
-			};
 			
 			if (!TEST)
 			{

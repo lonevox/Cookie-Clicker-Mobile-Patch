@@ -10,3 +10,4 @@ Orteil reserves the rights and ownership of all code in this repository.
 New settings:
 - Short Numbers - Shorten big numbers using english notation (default: on)
 - Short Formatting - Shorten the notation of cookies in bank (default: on)
+- Development Tools - Allows for the use of development tools (default: off)
