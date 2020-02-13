@@ -2288,8 +2288,8 @@ G.Init=function(StartLoop)
 			G.elderWrathD=Math.round(G.elderWrathD*1000)/1000;
 		}
 		
-		var pic1='bgBlue.jpg';
-		var pic2='bgBlue.jpg';
+		var pic1='bgGold.jpg';
+		var pic2='bgGold.jpg';
 		var ratio=0;
 		if (G.elderWrathD>0)
 		{
