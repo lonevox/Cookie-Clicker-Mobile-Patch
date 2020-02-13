@@ -762,6 +762,11 @@ G.Init=function(StartLoop)
 			onChange:me=>{
 			},
 		},
+		'shortnumbers':{
+			base:1,
+			onChange:me=>{
+			},
+		},
 		'diagnostic':{
 			base:DEV,
 			onChange:me=>{
@@ -3631,6 +3636,7 @@ G.Init=function(StartLoop)
 					`+G.stateButton({text:'Particles & milk',comment:'Disabling may improve performance.',tieToSetting:'particles'})+`
 					`+G.stateButton({text:'Cookie pops',comment:'Visual effect reflecting cookie production.<br>Requires particles to be on.',tieToSetting:'cookiepops'})+`
 					`+G.stateButton({text:'Cursors',comment:'Cursors rotating around your cookie.<br>Disabling may improve performance.',tieToSetting:'cursors'})+`
+					`+G.stateButton({text:'Short Numbers',comment:'Shorten big numbers.',tieToSetting:'shortnumbers'})+`
 					`+(DEV?G.stateButton({text:'Diagnostic',comment:'Displays a framerate graph.',tieToSetting:'diagnostic'}):'')+`
 					`+(DEV?G.stateButton({text:'Debug cheats',comment:'Displays cheat options.<br>For debug purposes only!',tieToSetting:'debug'}):'')+`
 				`,close:`Confirm`});
@@ -5585,7 +5591,10 @@ G.Draw=function()
 	}
 	else
 	{
-		G.cookiesAmountL.innerHTML=B(G.cookiesD)+(B(G.cookiesD)=='1'?' cookie':' cookies');
+		// Draw cookie bank depending on notation in settings (this is a patch modification)
+		if (G.getSet('shortnumbers')) {G.cookiesAmountL.innerHTML=B(G.cookiesD)+(B(G.cookiesD)=='1'?' cookie':' cookies');} 
+		else {G.cookiesAmountL.innerHTML=B(G.cookiesD,0,2)+(B(G.cookiesD)=='1'?' cookie':' cookies');}
+		
 		G.cookiesPsL.innerHTML=B(G.cookiesPs*(1-G.cpsSucked),1)+'/s';
 		var dif=(G.cookiesPs*(1-G.cpsSucked)-G.cookiesPsUnbuffed);
 		if (dif>0) {G.cookiesPsL.classList.remove('unbuffed');G.cookiesPsL.classList.add('buffed');}

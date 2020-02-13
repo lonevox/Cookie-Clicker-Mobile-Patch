@@ -7,4 +7,5 @@ Orteil reserves the rights and ownership of all code in this repository.
 2. Use apktool to build from the source (apktool and the instructions for how to install it can be found here)
 3. You're done, it's that easy :)
 ### Features
-Nothing yet.
+New settings:
+- Short Numbers - Shorten big numbers using english notation (default: on)
