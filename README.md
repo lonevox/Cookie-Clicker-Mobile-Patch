@@ -18,6 +18,11 @@ New settings:
 - Short Formatting - Shorten the notation of cookies in bank (default: on)
 - Development Tools - Allows for the use of development tools (default: off)
 
+### Planned Features
+- Add a "Round to 3dp" setting, which would allow the user to toggle the rounding of all large numbers between 1 and 3 decimal places.
+- Add a "Pop All Wrinklers" button on the stats screen.
+- Add a "Spread Wrinklers" setting, which would make wrinklers spread around the big cookie instead of clustering to one side (would only work if your resolution is high enough so that they can all fit on screen).
+
 ### Thanks
 Thanks to Trixter for allowing this project to use code from his permanent upgrade slot bug fix patch.
 Of course, thanks to Orteil for creating this amazing game :)
