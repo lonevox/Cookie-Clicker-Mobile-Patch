@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="common_google_play_services_unknown_issue">%1$s को Google Play सेवाओं के साथ समस्या आ रही है. कृपया फिर से कोशिश करें.</string>
+    <string name="s1">इमेज सेव करें</string>
+    <string name="s2">विज्ञापन को तस्वीर गैलरी में इमेज सेव करने का अनुमति देना चाहते हैं?</string>
+    <string name="s3">मंज़ूरी दें</string>
+    <string name="s4">खारिज करें</string>
+    <string name="s5">कैलेंडर इवेंट बनाएं</string>
+    <string name="s6">विज्ञापन को कैलेंडर इवेंट बनाने दें?</string>
+    <string name="s7">जाँच विज्ञापन</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+</resources>

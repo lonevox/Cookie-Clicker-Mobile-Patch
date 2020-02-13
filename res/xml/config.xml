@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget android-versionCode="10007" id="org.dashnet.cookieclicker" version="1.0.0" xmlns="http://www.w3.org/ns/widgets"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:gap="http://phonegap.com/ns/1.0">
+    <feature name="File">
+        <param name="android-package" value="org.apache.cordova.file.FileUtils" />
+        <param name="onload" value="true" />
+    </feature>
+    <allow-navigation href="cdvfile:*" />
+    <feature name="InAppBrowser">
+        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+    </feature>
+    <feature name="AdMob">
+        <param name="android-package" value="admob.plugin.AdMob" />
+    </feature>
+    <name>Cookie Clicker</name>
+    <description> The official mobile version of Cookie Clicker, by DashNet. </description>
+    <author href="http://dashnet.org"> DashNet </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <icon src="www/img/iconSolid.png" />
+    <preference name="loglevel" value="DEBUG" />
+    <preference name="orientation" value="portrait" />
+    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+    <preference name="permissions" value="none" />
+</widget>
