@@ -3496,17 +3496,12 @@ G.Init=function(StartLoop)
 			G.displayIf('grandmapocalypseStatus',()=>G.elderWrath>0 || G.pledges>0 || G.Has('Elder Covenant'));
 
 			//wrinklers
-			var wrinklerStr=`<div id="wrinklerStatus" class="bumpy" style="position:relative;overflow:hidden;">
-					
-					<div style="position:absolute;left:2px;top:2px;font-size:90%;font-weight:bold;border-bottom-right-radius:4px;background:#000;padding:3px 6px;padding-left:24px;"><div style="position:absolute;left:16px;top:0px;">${G.iconSmall(19,8)}</div>Wrinklers</div>
-					
-					<div style="float:right;">
-						`+G.button({text:`<div class="fancy">Pop all</div>`,classes:'bumpButton',style:'background:url(img/starbg.jpg);position:absolute;left:75%;top:0px;right:0px;bottom:0px;padding-top:10px;',onclick:function(){
-							G.collectWrinklers(true);
-						}})+`
-					</div>
-					
-					<div style="pointer-events:none;margin-top:20px;">
+			var wrinklerStr=`<div id="wrinklerStatus" class="bumpy" style="position:relative;overflow:hidden;padding:0;">
+				
+				<div style="position:absolute;left:2px;top:2px;font-size:90%;font-weight:bold;border-bottom-right-radius:4px;background:#000;padding:3px 6px;padding-left:24px;"><div style="position:absolute;left:16px;top:0px;">${G.iconSmall(19,8)}</div>Wrinklers</div>
+
+				<div style="width:100%;display:inline-flex;flex-direction:row;justify-content:space-between;align-items:center;">
+					<div style="pointer-events:none;flex-grow:1;width:auto;padding-top:4px;">
 						Number of wrinklers : <b>`+G.selfUpdatingText(e=>{
 							let numWrinklers=0;
 							for (var i=0;i<G.wrinklers.length;i++)
@@ -3514,8 +3509,23 @@ G.Init=function(StartLoop)
 								if (G.wrinklers[i].close==1) numWrinklers++;
 							}
 							return numWrinklers;
+						})+`</b></br>
+						Total sucked cookies : <b>`+G.selfUpdatingText(e=>{
+							let totalSucked=0;
+							for (var i=0;i<G.wrinklers.length;i++)
+							{
+								if (G.wrinklers[i].close==1) totalSucked+=G.wrinklers[i].sucked;
+							}
+							totalSucked*=1.1;	//multiply by 1.1 to accomodate for wrinkler bonus
+							if (G.Has('Sacrilegious corruption')) totalSucked*=1.05;
+							return B(totalSucked);
 						})+`
 					</div>
+
+					`+G.button({text:`<div class="fancy">Pop all<br>wrinklers</div>`,classes:'bumpButton',style:'background:url(img/starbg.jpg);height:52px;padding-top:15px;',onclick:function(){
+						G.collectWrinklers(true);
+					}})+`
+				</div>
 			</div>`;
 			G.displayIf('wrinklerStatus',()=>G.elderWrath>0);
 			
