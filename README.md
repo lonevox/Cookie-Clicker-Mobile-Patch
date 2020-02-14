@@ -13,6 +13,9 @@ Orteil reserves the rights and ownership of all code in this repository.
 Major bug fixes:
 - Any upgrade can now be used in the permanent upgrade slots.
 
+Additions:
+- A wrinkler GUI in the special tab that shows how many active wrinklers you have and also has a button to pop all wrinklers (it wont pop shiny wrinklers).
+
 New settings:
 - Short Numbers - Shorten big numbers using english notation (default: on)
 - Short Formatting - Shorten the notation of cookies in bank (default: on)
@@ -20,7 +23,6 @@ New settings:
 
 ### Planned Features
 - Add a "Round to 3dp" setting, which would allow the user to toggle the rounding of all large numbers between 1 and 3 decimal places.
-- Add a "Pop All Wrinklers" button on the stats screen.
 - Add a "Spread Wrinklers" setting, which would make wrinklers spread around the big cookie instead of clustering to one side (would only work if your resolution is high enough so that they can all fit on screen).
 
 ### Thanks
