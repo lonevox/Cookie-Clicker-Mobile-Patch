@@ -19,11 +19,11 @@ Additions:
 New settings:
 - Short Numbers - Shorten big numbers using english notation (default: on)
 - Short Formatting - Shorten the notation of cookies in bank (default: on)
+- Spread Wrinklers - Make wrinklers surround the big cookie (default: off)
 - Development Tools - Allows for the use of development tools (default: off)
 
 ### Planned Features
 - Add a "Round to 3dp" setting, which would allow the user to toggle the rounding of all large numbers between 1 and 3 decimal places.
-- Add a "Spread Wrinklers" setting, which would make wrinklers spread around the big cookie instead of clustering to one side (would only work if your resolution is high enough so that they can all fit on screen).
 
 ### Thanks
 Thanks to Trixter for allowing this project to use code from his permanent upgrade slot bug fix patch.

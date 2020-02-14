@@ -791,6 +791,11 @@ G.Init=function(StartLoop)
 			onChange:me=>{
 			},
 		},
+		'spreadwrinklers':{
+			base:0,
+			onChange:me=>{
+			},
+		},
 		'devtools':{
 			base:DEV,
 			onChange:me=>{
@@ -3707,6 +3712,7 @@ G.Init=function(StartLoop)
 					<h3>${G.iconSmall(16,5)} lonevox's Patch Settings</h3>
 					`+G.stateButton({text:'Short Numbers',comment:'Shorten big numbers using english notation.',tieToSetting:'shortnumbers'})+`
 					`+G.stateButton({text:'Short Formatting',comment:'Shorten the notation of cookies in bank.',tieToSetting:'shortformatting'})+`
+					`+G.stateButton({text:'Spread Wrinklers',comment:'Make wrinklers surround the big cookie.',tieToSetting:'spreadwrinklers'})+`
 					`+G.stateButton({text:'Development Tools',comment:'Allows for the use of development tools.',tieToSetting:'devtools'})+`
 					`+(DEV?`<h3>${G.iconSmall(16,5)} Development Settings</h3>`:'')+`
 					`+(DEV?G.stateButton({text:'Diagnostic',comment:'Displays a framerate graph.',tieToSetting:'diagnostic'}):'')+`
@@ -4325,7 +4331,8 @@ G.Init=function(StartLoop)
 			{
 				var seed=me.seed;
 				var d=110;
-				var r=(i/11+0.25)*0.35;
+				if (G.getSet('spreadwrinklers')) var r=i/G.getWrinklersMax()+0.25;
+				else {var r=(i/G.getWrinklersMax()+0.25)*0.35;}
 				if (G.getSet('fancy'))
 				{
 					d+=Math.sin(seed*741+37+G.T*(0.02+Math.sin(seed*4.17)*0.01))*5+100*(1-me.close);
