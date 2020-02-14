@@ -14,7 +14,7 @@ Major bug fixes:
 - Any upgrade can now be used in the permanent upgrade slots.
 
 Additions:
-- A wrinkler GUI in the special tab that shows how many active wrinklers you have and also has a button to pop all wrinklers (it wont pop shiny wrinklers).
+- A wrinkler GUI in the special tab that shows how many active wrinklers you have and the number of cookies you would get from popping them. Also has a button to pop all wrinklers (it wont pop shiny wrinklers).
 
 New settings:
 - Short Numbers - Shorten big numbers using english notation (default: on)
