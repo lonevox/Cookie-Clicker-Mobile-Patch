@@ -3489,6 +3489,30 @@ G.Init=function(StartLoop)
 					</div>
 			</div>`;
 			G.displayIf('grandmapocalypseStatus',()=>G.elderWrath>0 || G.pledges>0 || G.Has('Elder Covenant'));
+
+			//wrinklers
+			var wrinklerStr=`<div id="wrinklerStatus" class="bumpy" style="position:relative;overflow:hidden;">
+					
+					<div style="position:absolute;left:2px;top:2px;font-size:90%;font-weight:bold;border-bottom-right-radius:4px;background:#000;padding:3px 6px;padding-left:24px;"><div style="position:absolute;left:16px;top:0px;">${G.iconSmall(19,8)}</div>Wrinklers</div>
+					
+					<div style="float:right;">
+						`+G.button({text:`<div class="fancy">Pop all</div>`,classes:'bumpButton',style:'background:url(img/starbg.jpg);position:absolute;left:75%;top:0px;right:0px;bottom:0px;padding-top:10px;',onclick:function(){
+							G.collectWrinklers(true);
+						}})+`
+					</div>
+					
+					<div style="pointer-events:none;margin-top:20px;">
+						Number of wrinklers : <b>`+G.selfUpdatingText(e=>{
+							let numWrinklers=0;
+							for (var i=0;i<G.wrinklers.length;i++)
+							{
+								if (G.wrinklers[i].close==1) numWrinklers++;
+							}
+							return numWrinklers;
+						})+`
+					</div>
+			</div>`;
+			G.displayIf('wrinklerStatus',()=>G.elderWrath>0);
 			
 			str+=`
 			<div style="text-align:center;">
@@ -3497,6 +3521,7 @@ G.Init=function(StartLoop)
 				<h3>Current season :</h3>(not yet implemented)-->
 				${researchStr}
 				${grandmaStr}
+				${wrinklerStr}
 				<!--<h3>Switches :</h3>(not yet implemented)
 				<h3>Minigames :</h3>(not yet implemented)
 				<h3>Pets :</h3>(dragon, santa; not yet implemented)-->
@@ -4032,11 +4057,18 @@ G.Init=function(StartLoop)
 			if (G.Has('Elder spice')) n+=2;
 			return n;
 		}
-		G.collectWrinklers=function()
+		G.collectWrinklers=function(excludeShiny=false)
 		{
-			for (var i=0;i<G.wrinklers.length;i++)
+			if (excludeShiny==false)
 			{
-				G.wrinklers[i].hp=0;
+				for (var i=0;i<G.wrinklers.length;i++) G.wrinklers[i].hp=0;
+			}
+			else
+			{
+				for (var i=0;i<G.wrinklers.length;i++)
+				{
+					if (G.wrinklers[i].type==0) G.wrinklers[i].hp=0;
+				}
 			}
 		}
 		let wrinklerSquishSound=Math.floor(Math.random()*4)+1;
