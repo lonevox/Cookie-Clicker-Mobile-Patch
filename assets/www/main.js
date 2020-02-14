@@ -796,6 +796,22 @@ G.Init=function(StartLoop)
 			onChange:me=>{
 			},
 		},
+		'farmshinywrinklers':{
+			base:0,
+			onChange:me=>{
+				//if there are any regular wrinklers when this setting is turned on, this will pop them
+				if (me.val==1)
+				{
+					if (G.wrinklers!=null)
+					{
+						for (i=0;i<G.wrinklers.length;i++)
+						{
+							if (G.wrinklers[i].type==0) G.wrinklers[i].hp=0;
+						}
+					}
+				}
+			},
+		},
 		'devtools':{
 			base:DEV,
 			onChange:me=>{
@@ -3723,6 +3739,7 @@ G.Init=function(StartLoop)
 					`+G.stateButton({text:'Short Numbers',comment:'Shorten big numbers using english notation.',tieToSetting:'shortnumbers'})+`
 					`+G.stateButton({text:'Short Formatting',comment:'Shorten the notation of cookies in bank.',tieToSetting:'shortformatting'})+`
 					`+G.stateButton({text:'Spread Wrinklers',comment:'Make wrinklers surround the big cookie.',tieToSetting:'spreadwrinklers'})+`
+					`+G.stateButton({text:'Farm Shiny Wrinklers',comment:'Automatically pop regular wrinklers<br>while leaving shiny wrinklers.',tieToSetting:'farmshinywrinklers'})+`
 					`+G.stateButton({text:'Development Tools',comment:'Allows for the use of development tools.',tieToSetting:'devtools'})+`
 					`+(DEV?`<h3>${G.iconSmall(16,5)} Development Settings</h3>`:'')+`
 					`+(DEV?G.stateButton({text:'Diagnostic',comment:'Displays a framerate graph.',tieToSetting:'diagnostic'}):'')+`
@@ -4198,7 +4215,11 @@ G.Init=function(StartLoop)
 			if (me.phase>0)
 			{
 				if (me.close<1) me.close+=((1/G.fps)/10)*delta;
-				if (me.close>1) me.close=1;
+				if (me.close>1)
+				{
+					me.close=1;
+					if (G.getSet('farmshinywrinklers')) me.hp=0;
+				}
 			}
 			else me.close=0;
 			if (me.close==1 && me.phase==1)

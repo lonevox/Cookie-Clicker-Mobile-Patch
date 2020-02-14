@@ -15,11 +15,13 @@ Major bug fixes:
 
 Additions:
 - A wrinkler GUI in the special tab that shows how many active wrinklers you have and the number of cookies you would get from popping them. Also has a button to pop all wrinklers (it wont pop shiny wrinklers).
+- Farm shiny wrinklers by using the Farm Shiny Wrinklers setting (it even works while your screen is off!).
 
 New settings:
 - Short Numbers - Shorten big numbers using english notation (default: on)
 - Short Formatting - Shorten the notation of cookies in bank (default: on)
 - Spread Wrinklers - Make wrinklers surround the big cookie (default: off)
+- Farm Shiny Wrinklers - Automatically pop regular wrinklers while leaving shiny wrinklers (default: off)
 - Development Tools - Allows for the use of development tools (default: off)
 
 ### Planned Features
