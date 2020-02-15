@@ -796,6 +796,40 @@ G.Init=function(StartLoop)
 			onChange:me=>{
 			},
 		},
+		'autogoldencookieclick':{
+			base:0,
+			onChange:me=>{
+				if (me.val==1)
+				{
+					if (G.getSet('devtools')==0) me.val=0;	//turns this setting off if devtools is off
+					else
+					{
+						for (var i=G.shimmers.length-1;i>=0;i--)
+						{
+							var me=G.shimmers[i];
+							if (me.type=='golden') me.click();
+						}
+					}
+				}
+			},
+		},
+		'autowrathcookieclick':{
+			base:0,
+			onChange:me=>{
+				if (me.val==1)
+				{
+					if (G.getSet('devtools')==0) me.val=0;	//turns this setting off if devtools is off
+					else
+					{
+						for (var i=G.shimmers.length-1;i>=0;i--)
+						{
+							var me=G.shimmers[i];
+							if (me.wrath==true) me.click();
+						}
+					}
+				}
+			},
+		},
 		'farmshinywrinklers':{
 			base:0,
 			onChange:me=>{
@@ -1937,6 +1971,15 @@ G.Init=function(StartLoop)
 				me.wrath=true;
 			}
 			if (!me.force) me.force='';
+			//automatically click the cookie if autogoldencookieclick or autowrathcookieclick are on (this is a patch modification)
+			if (me.wrath==true)
+			{
+				if (G.getSet('autowrathcookieclick')) me.click();
+			}
+			else
+			{
+				if (G.getSet('autogoldencookieclick')) me.click();
+			}
 		},
 		spawnConditions:function()
 		{
@@ -3732,6 +3775,8 @@ G.Init=function(StartLoop)
 					`+(DEV?`<h3>${G.iconSmall(16,5)} Development Settings</h3>`:'')+`
 					`+(DEV?G.stateButton({text:'Diagnostic',comment:'Displays a framerate graph.',tieToSetting:'diagnostic'}):'')+`
 					`+(DEV?G.stateButton({text:'Debug cheats',comment:'Displays cheat options.<br>For debug purposes only!',tieToSetting:'debug'}):'')+`
+					`+(DEV?G.stateButton({text:'Auto Golden Cookie Click',comment:'Automatically click golden cookies<br>and cookie storm cookies.',tieToSetting:'autogoldencookieclick'}):'')+`
+					`+(DEV?G.stateButton({text:'Auto Wrath Cookie Click',comment:'Automatically click wrath cookies<br>and cookie storm cookies.',tieToSetting:'autowrathcookieclick'}):'')+`
 					`+(DEV?G.stateButton({text:'Farm Shiny Wrinklers',comment:'Automatically pop regular wrinklers<br>while leaving shiny wrinklers.',tieToSetting:'farmshinywrinklers'}):'')+`
 				`,close:`Confirm`});
 			}});

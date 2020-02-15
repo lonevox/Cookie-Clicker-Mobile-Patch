@@ -21,6 +21,8 @@ New settings:
 - Short Formatting - Shorten the notation of cookies in bank (default: on)
 - Spread Wrinklers - Make wrinklers surround the big cookie (default: off)
 - Development Tools - Allows for the use of development tools (default: off)
+- Auto Golden Cookie Click - Automatically clicks golden cookies and cookie storm cookies (development setting) (default: off)
+- Auto Wrath Cookie Click - Automatically clicks wrath cookies and cookie storm cookies (development setting) (default: off)
 - Farm Shiny Wrinklers - Automatically pop regular wrinklers while leaving shiny wrinklers (development setting) (default: off)
 
 ### Planned Features
