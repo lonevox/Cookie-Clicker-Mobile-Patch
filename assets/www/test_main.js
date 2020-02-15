@@ -837,11 +837,14 @@ G.Init=function(StartLoop)
 				if (me.val==1)
 				{
 					if (G.getSet('devtools')==0) me.val=0;	//turns this setting off if devtools is off
-					if (G.wrinklers!=null)
+					else
 					{
-						for (i=0;i<G.wrinklers.length;i++)
+						if (G.wrinklers!=null)
 						{
-							if (G.wrinklers[i].type==0) G.wrinklers[i].hp=0;
+							for (i=0;i<G.wrinklers.length;i++)
+							{
+								if (G.wrinklers[i].type==0) G.wrinklers[i].hp=0;
+							}
 						}
 					}
 				}
