@@ -3520,22 +3520,10 @@ G.Init=function(StartLoop)
 				<div style="width:100%;display:inline-flex;flex-direction:row;justify-content:space-between;align-items:center;">
 					<div style="pointer-events:none;flex-grow:1;width:auto;padding-top:4px;">
 						Number of wrinklers : <b>`+G.selfUpdatingText(e=>{
-							let numWrinklers=0;
-							for (var i=0;i<G.wrinklers.length;i++)
-							{
-								if (G.wrinklers[i].close==1) numWrinklers++;
-							}
-							return numWrinklers;
+							return G.getWrinklersSucking().length;
 						})+`</b></br>
 						Total sucked cookies : <b>`+G.selfUpdatingText(e=>{
-							let totalSucked=0;
-							for (var i=0;i<G.wrinklers.length;i++)
-							{
-								if (G.wrinklers[i].close==1) totalSucked+=G.wrinklers[i].sucked;
-							}
-							totalSucked*=1.1;	//multiply by 1.1 to accomodate for wrinkler bonus
-							if (G.Has('Sacrilegious corruption')) totalSucked*=1.05;
-							return B(totalSucked);
+							return B(G.getTotalSuckedCookies());
 						})+`
 					</div>
 
@@ -4090,6 +4078,28 @@ G.Init=function(StartLoop)
 			var n=10;
 			if (G.Has('Elder spice')) n+=2;
 			return n;
+		}
+		//returns an array populated by the index's of the current wrinklers that are sucking the cookie
+		G.getWrinklersSucking=function()
+		{
+			let wrinklers=[];
+			for (var i=0;i<G.wrinklers.length;i++)
+			{
+				if (G.wrinklers[i].close==1) wrinklers.push(i);
+			}
+			return wrinklers;
+		}
+		//returns the total amount of cookies within all unpopped wrinklers
+		G.getTotalSuckedCookies=function()
+		{
+			let totalSucked=0;
+			for (var i=0;i<G.wrinklers.length;i++)
+			{
+				if (G.wrinklers[i].close==1) totalSucked+=G.wrinklers[i].sucked;
+			}
+			totalSucked*=1.1;	//multiply by 1.1 to accomodate for wrinkler bonus
+			if (G.Has('Sacrilegious corruption')) totalSucked*=1.05;
+			return totalSucked;
 		}
 		G.collectWrinklers=function(excludeShiny=false)
 		{
