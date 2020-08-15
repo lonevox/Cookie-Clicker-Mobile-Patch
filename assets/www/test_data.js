@@ -6048,7 +6048,7 @@ G.addData(function(){
 		order:283,
 		cost:777,
 		pool:'prestige',
-		effs:['gcEffectsLifeM',1.1,1],
+		effs:[['gcEffectsLifeM',1.1,1]],
 	});
 
 	new G.Upgrade({
@@ -6060,7 +6060,7 @@ G.addData(function(){
 		order:284,
 		cost:7777,
 		pool:'prestige',
-		effs:['gcLifeM',1.05,1],
+		effs:[['gcLifeM',1.05,1]],
 	});
 
 	new G.Upgrade({
@@ -6072,7 +6072,7 @@ G.addData(function(){
 		order:286,
 		cost:99999,
 		pool:'prestige',
-		effs:['upgradeCostM',0.99,1],
+		effs:[['upgradeCostM',0.99,1]],
 	});
 
 	new G.Upgrade({
@@ -6084,7 +6084,7 @@ G.addData(function(){
 		order:285,
 		cost:99999,
 		pool:'prestige',
-		effs:['buildingCostM',0.99,1],
+		effs:[['buildingCostM',0.99,1]],
 	});
 
 	new G.Upgrade({
