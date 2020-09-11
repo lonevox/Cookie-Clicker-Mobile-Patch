@@ -8780,7 +8780,7 @@ G.addData(function(){
 	});
 	
 	
-		new G.Achiev({
+	new G.Achiev({
 		name:`Click delegator`,
 		id:134,
 		q:``,
