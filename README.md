@@ -12,6 +12,8 @@ Orteil reserves the rights and ownership of all code in this repository.
 ### Features
 Major bug fixes:
 - Any upgrade can now be used in the permanent upgrade slots.
+- Building CPS is now correctly calculated.
+- Bug where CPS still exists after all buildings are sold (alpha only).
 
 Additions:
 - A wrinkler GUI in the special tab that shows how many active wrinklers you have and the number of cookies you would get from popping them. Also has a button to pop all wrinklers (it wont pop shiny wrinklers).
